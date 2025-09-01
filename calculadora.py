@@ -48,5 +48,6 @@ def calculo():
             impar+=2
     print ("o resultado é: ", numero1)
 
-
+#fazer opção cli
 calculo()
+
