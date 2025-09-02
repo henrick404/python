@@ -1,4 +1,15 @@
+from InquirerPy import inquirer
 
+choices = ["+", "-", "*", "/","="]
+
+def menu():
+    action = inquirer.select(
+        message = "operação:",
+        choices = choices,
+        default=choices[0]
+    ).execute()
+
+    return action
 
 def calculo():
     lista=[]
@@ -9,15 +20,15 @@ def calculo():
         #parte visível
         num1=int(input("número:"))        
         lista.append(num1)
-        operacao=str(input("Operação:(+,-,*,/,=)"))
+        operacao=menu()
         lista.append(operacao)
 
         #repetições para segundo numero
         if vezesrepetidas==0:
             num2=int(input("número:"))
             lista.append(num2)
-            operacao=str(input("Operação:(+,-,*,/,=)"))
-            lista.append(operacao)
+            operacao=menu()
+        lista.append(operacao)
         vezesrepetidas+=1
 
         #encerra o while
@@ -48,6 +59,6 @@ def calculo():
             impar+=2
     print ("o resultado é: ", numero1)
 
-#fazer opção cli
+
 calculo()
 
